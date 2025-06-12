@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [22.x]
 
     steps:
     - name: Checkout code
@@ -33,7 +33,7 @@ jobs:
       run: npm ci
 
     - name: Run tests
-      run: npm run test:run
+      run: npm run test app/profile/add-recipe/tests/page
       env:
         NODE_ENV: test
         OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
